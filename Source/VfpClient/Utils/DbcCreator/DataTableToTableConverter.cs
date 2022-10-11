@@ -7,7 +7,7 @@ namespace VfpClient.Utils.DbcCreator {
     public class DataTableToTableConverter : ITableConverter<DataTable> {
         public Table Convert(DataTable dataTable) {
             if (dataTable == null) {
-                throw new ArgumentNullException("dataTable");
+                throw new ArgumentNullException(nameof(dataTable));
             }
 
             return GetTable(dataTable);

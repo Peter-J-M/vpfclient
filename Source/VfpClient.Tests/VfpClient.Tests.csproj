@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net461;netcoreapp3.1;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>net461;net47;net5.0-windows;netcoreapp3.1</TargetFrameworks>
     <IsPackable>false</IsPackable>
     <PlatformTarget>x86</PlatformTarget>
     <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
@@ -15,7 +15,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoFixture.Xunit2" Version="4.14.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.0" />    
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />    
     <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
@@ -47,6 +47,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Data.DataSetExtensions" Condition="'$(TargetFramework)' == 'net461' OR '$(TargetFramework)' == 'net47'" />
   </ItemGroup>
 
 </Project>
